@@ -12,7 +12,8 @@ function Initialize-Dictionary {
 
     $WordListPath = Join-Path -Path ($PSScriptRoot) -ChildPath "Data" -AdditionalChildPath $File
 
-    $Words = Get-Content -Path $WordListPath
+    #$Words = Get-Content -Path $WordListPath
+    $Words = [System.IO.File]::ReadAllLines($WordListPath)
     $Dictionary = [Ordered]@{}
     $Number = 1
     foreach ($Word in $Words) {
