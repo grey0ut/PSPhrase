@@ -14,9 +14,6 @@ RootModule = 'PSPhrase.psm1'
 # Version number of this module.
 ModuleVersion = '0.0.1'
 
-# Supported PSEditions
-# CompatiblePSEditions = @()
-
 # ID used to uniquely identify this module
 GUID = 'be882949-5060-4e47-a2bb-584fc2b52cc2'
 
@@ -33,7 +30,7 @@ Copyright = '(c) Courtney Bodett. All rights reserved.'
 Description = 'PowerShell module for generating unique and memorable passphrases'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '5.0'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
