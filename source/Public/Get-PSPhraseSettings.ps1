@@ -24,25 +24,12 @@ function Get-PSPhraseSettings {
 
     if (Test-Path $SettingsPath) {
         try {
-            $Settings = Get-Content -Path $SettingsPath | ConvertFrom-Json
+            $Settings = Get-Content -Path $SettingsPath | ConvertFrom-Json -AsHashtable
         } catch {
             throw $_
         }
         $Settings
     } else {
         Write-Verbose "No saved settings found"
-<#        # Default settings
-        $Settings = [Ordered]@{
-            Pairs           = 2
-            TitleCase       = $false
-            Substitution    = $false
-            Append          = $null
-            Prepend         = $null
-            Delimiter       = " "
-            Count           = 1
-            IncludeNumber   = $false
-            IncludeSymbol   = $false
-        }
-        #>
     }
 }
