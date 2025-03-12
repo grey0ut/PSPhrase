@@ -12,7 +12,7 @@
 RootModule = 'PSPhrase.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.1.0'
 
 # ID used to uniquely identify this module
 GUID = 'be882949-5060-4e47-a2bb-584fc2b52cc2'
