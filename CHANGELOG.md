@@ -4,7 +4,7 @@ The format is based on and uses the types of changes according to [Keep a Change
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- satisfying pester tests
+- remove unnecessary code from pester test files
 
 ### Added
 - 0.1.1 satisfied pester tests
