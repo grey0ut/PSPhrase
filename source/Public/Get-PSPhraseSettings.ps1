@@ -24,7 +24,7 @@ function Get-PSPhraseSettings {
 
     if (Test-Path $SettingsPath) {
         try {
-            $Settings = Get-Content -Path $SettingsPath | ConvertFrom-Json -AsHashtable
+            $Settings = Get-Content -Path $SettingsPath | ConvertFrom-Json
         } catch {
             throw $_
         }
