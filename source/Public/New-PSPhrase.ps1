@@ -36,29 +36,53 @@ function New-PSPhrase {
         [Switch]$IncludeSymbol
     )
 
+    $Settings = [Ordered]@{
+        Pairs = $Pairs
+        Count = $Count
+    }
     if ($DefaultSettings = Get-PSPhraseSettings) {
         foreach ($Setting in $DefaultSettings.PSObject.Properties.Name) {
             if (-not($PSBoundParameters.ContainsKey($Setting))) {
-                $PSBoundParameters.Add($Setting, $($DefaultSettings.$Setting))
-                Set-Variable -Name $Setting -Value $($DefaultSettings.$Setting)
+                $Settings.$Setting = $DefaultSettings.$Setting
             } 
         }
+    }
+    if ($TitleCase) {
+        $Settings.Add("TitleCase",$true)
+    }
+    if ($Substitution) {
+        $Settings.Add("Substitution",$true)
+    }
+    if ($IncludeNumber) {
+        $Settings.Add("IncludeNumber",$true)
+    }
+    if ($IncludeSymbol) {
+        $Settings.Add("IncludeSymbol",$true)
+    }
+    if ($Delimiter) {
+        $Settings.Add("Delimiter",$Delimiter)
+    }
+    if ($Prepend) {
+        $Settings.Add("Prepend",$Prepend)
+    }
+    if ($Append) {
+        $Settings.Add("Append",$Append)
     }
 
     $NounsHash = Initialize-Dictionary -Type Nouns 
     $AdjectivesHash = Initialize-Dictionary -Type Adjectives
 
-    $Passphrases = 1..$Count | ForEach-Object {
-        [System.Collections.ArrayList]$WordArray = 1..$Pairs | ForEach-Object {
+    $Passphrases = 1..$Settings.Count | ForEach-Object {
+        [System.Collections.ArrayList]$WordArray = 1..$Settings.Pairs | ForEach-Object {
             $Number = Get-RandomInt -Minimum 1 -Maximum $AdjectivesHash.Count 
             $AdjectivesHash.$Number
             $Number = Get-RandomInt -Minimum 1 -Maximum $NounsHash.Count 
             $NounsHash.$Number
         }
 
-        $CultureObj = (Get-Culture).TextInfo    
+        $CultureObj = (Get-Culture).TextInfo
 
-        Switch ($PSBoundParameters.Keys){
+        switch ($Settings.Keys) {
             'TitleCase' {
                 $WordArray = $WordArray | ForEach-Object {
                     $CultureObj.ToTitleCase($_)
