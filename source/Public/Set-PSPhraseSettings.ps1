@@ -48,9 +48,9 @@ function Set-PSPhraseSettings {
         $Windows = $false
     }
     if ($Windows) {
-        $SettingsPath = Join-Path -Path $Env:APPDATA -ChildPath "PSPhrase" -AdditionalChildPath Settings.json
+        $SettingsPath = Join-Path -Path $Env:APPDATA -ChildPath "PSPhrase\Settings.json"
     } else {
-        $SettingsPath = Join-Path -Path ([Environment]::GetEnvironmentVariable("HOME")) -ChildPath ".local" -AdditionalChildPath "share","powershell","Modules","PSPhrase",Settings.json
+        $SettingsPath = Join-Path -Path ([Environment]::GetEnvironmentVariable("HOME")) -ChildPath ".local/share/powershell/Modules/PSPhrase/Settings.json"
     }
 
     $Settings = [Ordered]@{}
@@ -88,10 +88,10 @@ function Set-PSPhraseSettings {
     Write-Verbose "Saving settings to $($SettingsPath)"
     try {
         if (Test-Path $SettingsPath) {
-            $Settings | ConvertTo-Json | Out-File -Path $SettingsPath -Force
+            $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath -Force
             } else {
                 New-Item -Path $SettingsPath -Force | Out-Null
-                $Settings | ConvertTo-Json | Out-File -Path $SettingsPath
+                $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath
             }
     } catch {
         throw $_

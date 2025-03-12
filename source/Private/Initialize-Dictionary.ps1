@@ -10,7 +10,7 @@ function Initialize-Dictionary {
         "Adjectives" {"Adjectives.txt"}
     }
 
-    $WordListPath = Join-Path -Path ($PSScriptRoot) -ChildPath "Data" -AdditionalChildPath $File
+    $WordListPath = Join-Path -Path ($PSScriptRoot) -ChildPath "Data/$File"
 
     #$Words = Get-Content -Path $WordListPath
     $Words = [System.IO.File]::ReadAllLines($WordListPath)

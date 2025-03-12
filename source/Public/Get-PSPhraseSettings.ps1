@@ -17,9 +17,9 @@ function Get-PSPhraseSettings {
         $Windows = $false
     }
     if ($Windows) {
-        $SettingsPath = Join-Path -Path $Env:APPDATA -ChildPath "PSPhrase" -AdditionalChildPath Settings.json
+        $SettingsPath = Join-Path -Path $Env:APPDATA -ChildPath "PSPhrase\Settings.json"
     } else {
-        $SettingsPath = Join-Path -Path ([Environment]::GetEnvironmentVariable("HOME")) -ChildPath ".local" -AdditionalChildPath "share","powershell","Modules","PSPhrase",Settings.json
+        $SettingsPath = Join-Path -Path ([Environment]::GetEnvironmentVariable("HOME")) -ChildPath ".local/share/powershell/Modules/PSPhrase/Settings.json"
     }
 
     if (Test-Path $SettingsPath) {
