@@ -39,6 +39,7 @@ function New-PSPhrase {
     $Settings = [Ordered]@{
         Pairs = $Pairs
         Count = $Count
+        Delimiter = $Delimiter
     }
     if ($DefaultSettings = Get-PSPhraseSettings) {
         foreach ($Setting in $DefaultSettings.PSObject.Properties.Name) {
@@ -58,9 +59,6 @@ function New-PSPhrase {
     }
     if ($IncludeSymbol) {
         $Settings.Add("IncludeSymbol",$true)
-    }
-    if ($Delimiter) {
-        $Settings.Add("Delimiter",$Delimiter)
     }
     if ($Prepend) {
         $Settings.Add("Prepend",$Prepend)
@@ -104,13 +102,13 @@ function New-PSPhrase {
                 $WordArray[$WordIndex] = $WordArray[$WordIndex].Insert($Position, $RandomSymbol)
             }
             'Append' {
-                [Void]$WordArray.Add($Append)
+                [Void]$WordArray.Add($Settings.Append)
             }
             'Prepend' {
-                $WordArray.Insert(0, $Prepend)
+                $WordArray.Insert(0, $Settings.Prepend)
             }
         }
-        $WordArray -join $Delimiter
+        $WordArray -join $Settings.Delimiter
     }
     $Passphrases
 }
