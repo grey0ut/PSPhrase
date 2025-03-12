@@ -7,25 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- For new features.
-
+- 0.1.0 added ability to save preferred parameters/values for New-PSPhrase via Set-PSPhraseSettings
 ### Changed
 
-- For changes in existing functionality.
+- 0.1.0 changed method of saving settings.  ENV variable code doesn't work well cross platform. Saving to file instead.
 
 ### Deprecated
 
-- For soon-to-be removed features.
+- 
 
 ### Removed
 
-- For now removed features.
+- 
 
 ### Fixed
 
-- For any bug fix.
+- 
 
 ### Security
 
-- In case of vulnerabilities.
+- 
 
