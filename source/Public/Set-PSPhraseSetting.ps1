@@ -35,14 +35,14 @@ function Set-PSPhraseSetting {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [ValidateRange(1,10)]
-        [Int32]$Pairs = 2,
+        [Int32]$Pairs,
         [Switch]$TitleCase,
         [Switch]$Substitution,
         [String]$Append,
         [String]$Prepend,
-        [String]$Delimiter = ' ',
+        [String]$Delimiter,
         [ValidateRange(1,500)]
-        [Int32]$Count = 1,
+        [Int32]$Count,
         [Switch]$IncludeNumber,
         [Switch]$IncludeSymbol,
         [Switch]$Defaults
@@ -73,12 +73,6 @@ function Set-PSPhraseSetting {
             'Substitution' {
                 $Settings.Substitution = $true
             }
-            'Append' {
-                $Settings.Append = $Append
-            }
-            'Prepend' {
-                $Settings.Prepend = $Prepend
-            }
             'Delimiter' {
                 $Settings.Delimiter = $Delimiter
             }
@@ -92,17 +86,29 @@ function Set-PSPhraseSetting {
                 $Settings.IncludeSymbol = $true
             }
         }
-    Write-Verbose "Saving settings to $($SettingsPath)"
-    try {
-        if (Test-Path $SettingsPath) {
-            $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath -Force
-            } else {
-                New-Item -Path $SettingsPath -Force | Out-Null
-                $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath
-            }
-    } catch {
-        throw $_
+        # move these out of the switch statement to insure they don't manipulated by other rules
+        if ($Append) {
+            $Settings.Append = $Append
         }
+        if ($Prepend) {
+            $Settings.Prepend = $Prepend
+        }
+            if ($Settings.Count -gt 0) {
+                try {
+                    if (Test-Path $SettingsPath) {
+                        Write-Verbose "Saving settings to $($SettingsPath)"
+                        $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath -Force
+                        } else {
+                            Write-Verbose "Saving settings to $($SettingsPath)"
+                            New-Item -Path $SettingsPath -Force | Out-Null
+                            $Settings | ConvertTo-Json | Out-File -FilePath $SettingsPath
+                        }
+                } catch {
+                    throw $_
+                    }
+            } else {
+                Write-Warning "No settings specified. Nothing saved"
+            }
     } else {
         try {
             Write-Verbose "Removing settings file at $($SettingsPath)"
