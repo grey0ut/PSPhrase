@@ -4,9 +4,10 @@ The format is based on and uses the types of changes according to [Keep a Change
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- remove unnecessary code from pester test files
+- add new features
 
 ### Added
+- 0.1.2 improved code coverage for pester tests
 - 0.1.1 satisfied pester tests
 - 0.1.0 added ability to save preferred parameters/values for New-PSPhrase via Set-PSPhraseSettings
 ### Changed
