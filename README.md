@@ -1,7 +1,8 @@
 <div align='center'>
 <img src='Assets/PSPhrase.svg' />
-</div>
-# PSPhrase
+</div>  
+
+## PSPhrase
 
 PowerShell module for generating unique and memorable passphrases
 
