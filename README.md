@@ -46,4 +46,7 @@ Since there are a few parameters and you'll probably have a preference I thought
 If there are any currently saved PSPhrase settings you can retrieve them with this function.  Settings are stored per use on a given machine.  
 ### Set-PSPhraseSetting  
 Takes all the same parameters as Get-PSPhrase but it saves the preferred values to a file.  These settings can be overridden when calling Get-PSPhrase by simply calling a specific parameter.  
+## Made With Sampler  
+This project was made using [Sampler Module](https://github.com/gaelcolas/Sampler)  
+See their [video presentation](https://youtu.be/tAUCWo88io4?si=jq0f7omwll1PtUsN) from the PowerShell summit for a great demontsration.  
 
