@@ -4,29 +4,8 @@ The format is based on and uses the types of changes according to [Keep a Change
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- add new features
 
 ### Added
-- 0.1.2 improved code coverage for pester tests
-- 0.1.1 satisfied pester tests
-- 0.1.0 added ability to save preferred parameters/values for New-PSPhrase via Set-PSPhraseSettings
+- improved code coverage for pester tests
 ### Changed
-
-- 0.1.0 changed method of saving settings.  ENV variable code doesn't work well cross platform. Saving to file instead.
-
-### Deprecated
-
-- 
-
-### Removed
-
-- 
-
-### Fixed
-
-- 
-
-### Security
-
-- 
-
+- changed method of saving settings.  ENV variable code doesn't work well cross platform. Saving to file instead.
