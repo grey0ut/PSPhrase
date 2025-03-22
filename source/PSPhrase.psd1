@@ -12,7 +12,10 @@
 RootModule = 'PSPhrase.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.2'
+ModuleVersion = '1.0.0'
+
+# Supported PSEditions
+CompatiblePSEditions = @('Desktop','Core')
 
 # ID used to uniquely identify this module
 GUID = 'be882949-5060-4e47-a2bb-584fc2b52cc2'
@@ -92,13 +95,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = 'password','passphrase','diceware','natural language','core','desktop','linux','windows','macos','pass','passcode','passwordgenerator','security'
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/grey0ut/PSPhrase/blob/main/LICENSE' 
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/grey0ut/PSPhrase' 
 
         # A URL to an icon representing this module.
         # IconUri = ''
