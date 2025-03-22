@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = 'password','passphrase','diceware','natural language','core','desktop','linux','windows','macos','pass','passcode','passwordgenerator','security'
+        Tags = 'password','passphrase','diceware','natural','language','core','desktop','linux','windows','macos','pass','passcode','passwordgenerator','security'
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/grey0ut/PSPhrase/blob/main/LICENSE' 
