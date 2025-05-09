@@ -1,18 +1,18 @@
 <div align='center'>
 <img src='Assets/PSPhrase.svg' />
-</div>  
+</div>
 
 ## PSPhrase
 
 PowerShell module for generating unique and memorable passphrases
-## Installation  
-To install PSPhrase  
+## Installation
+To install PSPhrase
 ```Powershell
 PS> Install-Module -Name 'PSPhrase'
 
 ```
 
-## Natural Language Passphrases 
+## Natural Language Passphrases
 ---
 Passwords are an unfortunate part of our everyday lives. If you're doing things right you likely have hundreds of passwords and hopefully you have a password manager.  How many times have you been in a position where you need one of these randomly generated passwords from your password manager but there's no option to copy/paste to your destination. Now you're stuck typing this:
 ```
@@ -24,17 +24,17 @@ Originally I got a lot of help from [Tim Evans' blog](https://www.timmevans.net/
 
 These are all worth reading.
 ## Examples
-PSPhrase is a module with one purpose: generating memorable passphrases. It's a crossplatform CLI tool for generating one, or many, passphrases that you can use to secure your assets.  
-It has quite a few parameters for tailoring your preferences for the output passphrase.  
+PSPhrase is a module with one purpose: generating memorable passphrases. It's a crossplatform CLI tool for generating one, or many, passphrases that you can use to secure your assets.
+It has quite a few parameters for tailoring your preferences for the output passphrase.
 The function for generating a new passphrase(s) is Get-PSPhrase.
-## Get-PSPhrase  
-Call the function with default settings and you will get one passphrase containing 4 words.  
+## Get-PSPhrase
+Call the function with default settings and you will get one passphrase containing 4 words.
 ```Powershell
-PS> Get-PSPhrase  
+PS> Get-PSPhrase
 ethical step ruined dipper
 
-```  
-If you'd like to see several candidates and pick one use the -Count parameter.  
+```
+If you'd like to see several candidates and pick one use the -Count parameter.
 ```Powershell
 PS> Get-PSPhrase -Count 10
 euphoric broiler curled almanac
@@ -48,13 +48,13 @@ safe wind crabby geology
 baroque ape affectionate banks
 gifted nub assured does
 
-```  
-There are quite a few parameters, detailed below, to let you customize your passphrases.  If you find that you're frequently supplying the same parameters each time and would like to create your own defaults you can save them with Set-PSPhraseSetting.  
+```
+There are quite a few parameters, detailed below, to let you customize your passphrases.  If you find that you're frequently supplying the same parameters each time and would like to create your own defaults you can save them with Set-PSPhraseSetting.
 ```Powershell
 PS> Set-PSPhraseSetting -Count 10 -TitleCase -IncludeNumber
 
-```  
-This will make it so the next time you call Get-PSPhrase without any parameters it will provide 10 passphrases with title case and include a number.  
+```
+This will make it so the next time you call Get-PSPhrase without any parameters it will provide 10 passphrases with title case and include a number.
 ```Powershell
 PS> Get-PSPhrase
 Wicked8 Bicycle Pristine Guy
@@ -68,16 +68,16 @@ Turbo Goose 4Undying Lulls
 Palatable Jokes Tepid 3Knocks
 Kaleidoscopic Sexes Tight2 Wildfire
 
-```  
-These settings are saved on a per-user basis locally.  If at any point you wish to change the default settings you can run Set-PSPhraseSetting again, or see the current settings with Get-PSPhraseSetting.  Running Set-PSPhraseSetting with the -Defaults parameter will erase the saved settings.  
+```
+These settings are saved on a per-user basis locally.  If at any point you wish to change the default settings you can run Set-PSPhraseSetting again, or see the current settings with Get-PSPhraseSetting.  Running Set-PSPhraseSetting with the -Defaults parameter will erase the saved settings.
 ## Parameter Pairs
 It generates Adjective/Noun pairs, this defines how many pairs you want returned. The default is 2 pair (two words)
-## Paramter Count  
+## Paramter Count
 Specifies how many passphrases you'd like returned on execution. It can be nice to generate many so you can select the one that stands out the most to you.
 ## Parameter TitleCase
-Switch parameter to toggle the use of title case. E.g. The First Letter Of Every Word Is Uppercase. 
+Switch parameter to toggle the use of title case. E.g. The First Letter Of Every Word Is Uppercase.
 ## Parameter Substitution
-Switch parameter to toggle common character substitution.  E.g. '3's for 'e's and '@'s for 'a's etc. 
+Switch parameter to toggle common character substitution.  E.g. '3's for 'e's and '@'s for 'a's etc.
 ## Parameter Prepend
 Provide a string you would like prepended to the password output
 ## Parameter Append
@@ -87,15 +87,14 @@ This parameter accepts any string you would prefer as a delimiter between words.
 ## Parameter IncludeNumber
 Switch parameter to randomly include a number within the passphrase
 ## Parameter IncludeSymbol
-Switch parameter to randomly include a symbol within the passphrase  
-  
-## Settings  
-Since there are a few parameters and you'll probably have a preference I thought it would be nice to have a way to save your preferred settings without having to leverage `$PSDefaultParameterValues` and put it in your profile.  
-### Get-PSPhraseSetting  
-If there are any currently saved PSPhrase settings you can retrieve them with this function.  Settings are stored per use on a given machine.  
-### Set-PSPhraseSetting  
-Takes all the same parameters as Get-PSPhrase but it saves the preferred values to a file.  These settings can be overridden when calling Get-PSPhrase by simply calling a specific parameter.  
-## Made With Sampler  
-This project was made using [Sampler Module](https://github.com/gaelcolas/Sampler)  
-See their [video presentation](https://youtu.be/tAUCWo88io4?si=jq0f7omwll1PtUsN) from the PowerShell summit for a great demontsration.  
+Switch parameter to randomly include a symbol within the passphrase
 
+## Settings
+Since there are a few parameters and you'll probably have a preference I thought it would be nice to have a way to save your preferred settings without having to leverage `$PSDefaultParameterValues` and put it in your profile.
+### Get-PSPhraseSetting
+If there are any currently saved PSPhrase settings you can retrieve them with this function.  Settings are stored per use on a given machine.
+### Set-PSPhraseSetting
+Takes all the same parameters as Get-PSPhrase but it saves the preferred values to a file.  These settings can be overridden when calling Get-PSPhrase by simply calling a specific parameter.
+## Made With Sampler
+This project was made using [Sampler Module](https://github.com/gaelcolas/Sampler)
+See their [video presentation](https://youtu.be/tAUCWo88io4?si=jq0f7omwll1PtUsN) from the PowerShell summit for a great demonstration.
