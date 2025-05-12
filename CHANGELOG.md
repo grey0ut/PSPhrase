@@ -6,6 +6,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- improved code coverage for pester tests
-### Changed
-- changed method of saving settings.  ENV variable code doesn't work well cross platform. Saving to file instead.
+- Added run-once code at import time that checks for the presence of transcript logging and warns the user is present
+
